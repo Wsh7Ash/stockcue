@@ -1,0 +1,9 @@
+sku,name,action,suggested_qty,on_hand,lead_time_days,supplier,urgency
+BOTT-STEEL-500,Steel Bottle 500ml,order,55,5,16,HydraMetal,critical
+CAND-BSW-120,Beeswax Candle 120g,order,9,18,21,Wickery,order
+COFF-BEAN-250,Coffee Beans 250g,order,145,30,7,Roast House,order
+PEN-BALL-BLK,Ballpoint Pen Black,order,131,25,3,InkRight,order
+SOAP-LAV-100,Lavender Soap 100g,order,60,12,12,CleanBar,order
+SOCK-WOL-GRY,Wool Socks Grey,order,42,35,11,Knitwell,order
+TEA-GREEN-100,Green Tea 100g,order,80,55,10,Leaf & Co,order
+TOTE-CAN-NAT,Canvas Tote Natural,order,92,14,9,Stitchery,order

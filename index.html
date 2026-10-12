@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>stockcue - offline reorder-point advisor for small shops</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>stockcue</h1>
+      <p class="tagline">Reorder-point advisor for small shops &mdash; all data stays in your browser.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="controls" aria-label="Settings and data">
+      <h2>Settings</h2>
+      <div class="control-grid">
+        <fieldset class="control">
+          <legend>Safety stock mode</legend>
+          <label><input type="radio" name="safety-mode" value="manual" checked> Manual (units I enter)</label>
+          <label><input type="radio" name="safety-mode" value="auto"> Auto (from demand variability)</label>
+        </fieldset>
+
+        <div class="control" id="manual-safety-row">
+          <label for="manual-safety">Manual safety stock (units)</label>
+          <input id="manual-safety" type="number" min="0" step="1" value="10" inputmode="numeric">
+        </div>
+
+        <div class="control" id="service-level-row" hidden>
+          <label for="service-level">Service level (auto mode)</label>
+          <select id="service-level">
+            <option value="90">90% (z = 1.28)</option>
+            <option value="95" selected>95% (z = 1.65)</option>
+            <option value="99">99% (z = 2.33)</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="review-days">Review days (how often you order)</label>
+          <input id="review-days" type="number" min="0" step="1" value="7" inputmode="numeric">
+        </div>
+      </div>
+
+      <h2>Data</h2>
+      <div class="control-grid data-grid">
+        <div class="control">
+          <button id="btn-sample" type="button">Load sample shop</button>
+        </div>
+        <div class="control">
+          <label for="sales-file">Sales CSV (date,sku,qty)</label>
+          <input id="sales-file" type="file" accept=".csv,text/csv">
+        </div>
+        <div class="control">
+          <label for="inventory-file">Inventory CSV (sku,name,on_hand,lead_time_days,supplier)</label>
+          <input id="inventory-file" type="file" accept=".csv,text/csv">
+        </div>
+        <div class="control control-actions">
+          <button id="btn-import" type="button">Import CSVs</button>
+          <button id="btn-export" type="button">Export order list CSV</button>
+        </div>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="summary-strip" aria-label="Summary">
+      <h2 class="sr-only">Summary</h2>
+      <div id="summary"></div>
+    </section>
+
+    <section class="table-section" aria-label="Reorder table">
+      <h2>What to reorder</h2>
+      <p class="hint">Sorted by urgency. Edit a lead time in a row to recalculate instantly.</p>
+      <div class="table-scroll">
+        <table id="reorder-table">
+          <caption class="sr-only">SKUs ranked by reorder urgency</caption>
+          <thead>
+            <tr>
+              <th scope="col">SKU</th>
+              <th scope="col">Name</th>
+              <th scope="col" class="num">On hand</th>
+              <th scope="col" class="num">Avg/day</th>
+              <th scope="col" class="num">Lead days</th>
+              <th scope="col" class="num">Safety</th>
+              <th scope="col" class="num">ROP</th>
+              <th scope="col" class="num">Suggest qty</th>
+              <th scope="col" class="num">Days cover</th>
+              <th scope="col">Urgency</th>
+              <th scope="col">Why</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <tr>
+              <td colspan="11" class="empty-cell">No data yet. Click <strong>Load sample shop</strong> or import your CSV files.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="disclaimer" aria-label="Assumptions and disclaimer">
+      <h2>Assumptions</h2>
+      <p>
+        stockcue runs advisory math on the data you provide: average daily demand, demand
+        variability, your lead times and review cadence. It does not know about seasonality,
+        promotions, supplier minimums, or your cash flow. It is decision support, not financial
+        or purchasing advice. All parsing and calculation happens locally in your browser;
+        nothing is uploaded anywhere.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>stockcue 0.1.0 &mdash; MIT licensed. Offline by design.</p>
+    </div>
+  </footer>
+
+  <script src="src/csv.js"></script>
+  <script src="src/calc.js"></script>
+  <script src="src/samples.js"></script>
+  <script src="src/render.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

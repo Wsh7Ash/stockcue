@@ -1,0 +1,19 @@
+SKU            | Name                     | OnHand | Avg/Day | Lead | Safety |   ROP | Suggest |  Cover | Urgency   
+---------------+--------------------------+--------+---------+------+--------+-------+---------+--------+-----------
+BOTT-STEEL-500 | Steel Bottle 500ml       |      5 |    2.15 |   16 |     10 |    45 |      55 |   2.32 | critical  
+CAND-BSW-120   | Beeswax Candle 120g      |     18 |    0.58 |   21 |     10 |    23 |       9 |  30.86 | order     
+COFF-BEAN-250  | Coffee Beans 250g        |     30 |   11.76 |    7 |     10 |    93 |     145 |   2.55 | order     
+PEN-BALL-BLK   | Ballpoint Pen Black      |     25 |   14.57 |    3 |     10 |    54 |     131 |   1.72 | order     
+SOAP-LAV-100   | Lavender Soap 100g       |     12 |    3.25 |   12 |     10 |    49 |      60 |   3.69 | order     
+SOCK-WOL-GRY   | Wool Socks Grey          |     35 |    3.68 |   11 |     10 |    51 |      42 |   9.51 | order     
+TEA-GREEN-100  | Green Tea 100g           |     55 |    7.33 |   10 |     10 |    84 |      80 |    7.5 | order     
+TOTE-CAN-NAT   | Canvas Tote Natural      |     14 |    5.94 |    9 |     10 |    64 |      92 |   2.36 | order     
+HONEY-WLD-250  | Wildflower Honey 250g    |     60 |    2.15 |   18 |     10 |    49 |       4 |  27.87 | watch     
+MUG-CER-WHT    | Ceramic Mug White        |     40 |    1.21 |   14 |     10 |    27 |       0 |   33.1 | ok        
+NOTE-A5-LIN    | A5 Lined Notebook        |     90 |    4.64 |    5 |     10 |    34 |       0 |   19.4 | ok        
+TEA-HERB-050   | Herbal Tea Sampler 50g   |     48 |       0 |   10 |     10 |    10 |       0 |    inf | no-demand 
+
+Totals: 12 SKUs | 1 critical | 7 order | 1 watch | 2 ok | 1 no-demand
+Window: 2026-07-01 + 72 days (through 2026-09-10)
+Settings: safety=manual(10 units), review=7 days
+

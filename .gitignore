@@ -1,0 +1,17 @@
+# No dependencies by design; keep the tree clean anyway.
+node_modules/
+*.log
+npm-debug.log*
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Local scratch
+tmp/
+*.tmp

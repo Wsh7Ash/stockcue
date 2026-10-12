@@ -1,0 +1,4 @@
+# Keep generated CSV artifacts byte-exact (they contain CRLF by design).
+* text=auto
+examples/*.csv -text
+results/order-list.csv -text
